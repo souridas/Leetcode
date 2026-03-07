@@ -1,0 +1,20 @@
+# Last updated: 3/7/2026, 4:31:12 PM
+# target-root.val
+1# Definition for a binary tree node.
+2# class TreeNode:
+3#     def __init__(self, val=0, left=None, right=None):
+4#         self.val = val
+5#         self.left = left
+6#         self.right = right
+7class Solution:
+8    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+9        if not root:
+10            return False
+11        remaining_sum = targetSum-root.val
+12        if not root.left and not root.right:
+13            if remaining_sum==0:
+14                return True
+15        return self.hasPathSum(root.left,remaining_sum) or self.hasPathSum(root.right,remaining_sum)
+16
+17
+18        
